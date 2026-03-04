@@ -38,7 +38,6 @@ const Navbar = ({ activeTab, setActiveTab }: { activeTab: string, setActiveTab: 
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About Us' },
-    { id: 'services', label: 'Services' },
     { id: 'community', label: 'Community' },
     { id: 'dashboard', label: 'Map' },
     { id: 'contact', label: 'Contact' },
