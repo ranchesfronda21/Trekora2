@@ -50,7 +50,7 @@ const Navbar = ({ activeTab, setActiveTab }: { activeTab: string, setActiveTab: 
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => setActiveTab('home')}>
             <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center overflow-hidden border border-emerald-100 shadow-sm">
                <img 
-                 src="https://github.com/ranchesfronda21/Trekora2/blob/main/trekora.jpg?raw=true" 
+                 src="/trekora.jpg" 
                  alt="Trekora Logo" 
                  className="w-full h-full object-cover"
                  referrerPolicy="no-referrer"
@@ -280,6 +280,81 @@ const About = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Services = ({ onBookNow }: { onBookNow: () => void }) => {
+  const services = [
+    {
+      title: 'Guided Mountain Climbs',
+      price: '₱1,500',
+      desc: 'Explore iconic and hidden trails with experienced guides.',
+      includes: ['Guide fee', 'Registration assistance', 'Itinerary planning'],
+      image: 'https://images.unsplash.com/photo-1551632432-c735e7a030bc?auto=format&fit=crop&q=80&w=800'
+    },
+    {
+      title: 'Beginner Hiking Packages',
+      price: '₱1,200',
+      desc: 'Safe and supportive introduction to mountaineers.',
+      includes: ['Pre-climb orientation', 'Pacing support', 'Basic hiking tips'],
+      image: 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&q=80&w=800'
+    },
+    {
+      title: 'Multi-Day Expeditions',
+      price: '₱3,500',
+      desc: 'Conquer challenging peaks with overnight camping.',
+      includes: ['Guide', 'Campsite coordination', 'Survival skills'],
+      image: 'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&q=80&w=800'
+    },
+    {
+      title: 'Private & Corporate Programs',
+      price: 'Custom',
+      desc: 'Custom-designed experiences for groups and teams.',
+      includes: ['Team bonding', 'Leadership development', 'Custom itinerary'],
+      image: 'https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&q=80&w=800'
+    }
+  ];
+
+  return (
+    <section className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-sm font-bold tracking-widest text-emerald-700 uppercase mb-4">Our Services</h2>
+          <h3 className="text-4xl font-bold text-stone-900">Adventure Packages</h3>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {services.map((s) => (
+            <div key={s.title} className="group bg-stone-50 rounded-3xl overflow-hidden border border-stone-100 hover:shadow-xl transition-all duration-300">
+              <div className="h-48 overflow-hidden relative">
+                <img src={s.image} alt={s.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" referrerPolicy="no-referrer" />
+                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-emerald-700">
+                  Starts at {s.price}
+                </div>
+              </div>
+              <div className="p-6">
+                <h4 className="text-lg font-bold text-stone-900 mb-2">{s.title}</h4>
+                <p className="text-sm text-stone-600 mb-6 leading-relaxed">{s.desc}</p>
+                <div className="space-y-2">
+                  {s.includes.map((inc) => (
+                    <div key={inc} className="flex items-center gap-2 text-xs text-stone-500">
+                      <div className="w-1 h-1 bg-emerald-500 rounded-full" />
+                      {inc}
+                    </div>
+                  ))}
+                </div>
+                <button 
+                  onClick={onBookNow}
+                  className="w-full mt-8 py-3 bg-white border border-stone-200 rounded-xl text-sm font-bold text-stone-900 hover:bg-emerald-700 hover:text-white hover:border-emerald-700 transition-all"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -890,6 +965,7 @@ const Footer = ({ setActiveTab }: { setActiveTab: (t: string) => void }) => (
           <ul className="space-y-4 text-sm text-stone-400">
             <li><button onClick={() => setActiveTab('home')} className="hover:text-emerald-400 transition-colors">Home</button></li>
             <li><button onClick={() => setActiveTab('about')} className="hover:text-emerald-400 transition-colors">About Us</button></li>
+            <li><button onClick={() => setActiveTab('services')} className="hover:text-emerald-400 transition-colors">Services</button></li>
             <li><button onClick={() => setActiveTab('community')} className="hover:text-emerald-400 transition-colors">Community</button></li>
           </ul>
         </div>
@@ -923,6 +999,7 @@ export default function App() {
       <main className="pt-16">
         {activeTab === 'home' && (
           <>
+            <Hero onExplore={() => setActiveTab('services')} />
             <section className="py-24 bg-white">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -953,6 +1030,7 @@ export default function App() {
           </>
         )}
         {activeTab === 'about' && <About />}
+        {activeTab === 'services' && <Services onBookNow={() => setActiveTab('dashboard')} />}
         {activeTab === 'community' && <Community />}
         {activeTab === 'dashboard' && <Dashboard />}
         {activeTab === 'contact' && <Contact />}
