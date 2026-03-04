@@ -890,7 +890,6 @@ const Footer = ({ setActiveTab }: { setActiveTab: (t: string) => void }) => (
           <ul className="space-y-4 text-sm text-stone-400">
             <li><button onClick={() => setActiveTab('home')} className="hover:text-emerald-400 transition-colors">Home</button></li>
             <li><button onClick={() => setActiveTab('about')} className="hover:text-emerald-400 transition-colors">About Us</button></li>
-            <li><button onClick={() => setActiveTab('services')} className="hover:text-emerald-400 transition-colors">Services</button></li>
             <li><button onClick={() => setActiveTab('community')} className="hover:text-emerald-400 transition-colors">Community</button></li>
           </ul>
         </div>
@@ -924,7 +923,6 @@ export default function App() {
       <main className="pt-16">
         {activeTab === 'home' && (
           <>
-            <Hero onExplore={() => setActiveTab('services')} />
             <section className="py-24 bg-white">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -955,7 +953,6 @@ export default function App() {
           </>
         )}
         {activeTab === 'about' && <About />}
-        {activeTab === 'services' && <Services onBookNow={() => setActiveTab('dashboard')} />}
         {activeTab === 'community' && <Community />}
         {activeTab === 'dashboard' && <Dashboard />}
         {activeTab === 'contact' && <Contact />}
