@@ -174,12 +174,6 @@ const Hero = ({ onExplore }: { onExplore: () => void }) => (
           Trekora Expedition is a mountain tourism and adventure company dedicated to guiding explorers through the most breathtaking peaks and highland landscapes.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button 
-            onClick={onExplore}
-            className="w-full sm:w-auto px-8 py-4 bg-emerald-600 text-white rounded-full font-semibold hover:bg-emerald-700 transition-all transform hover:scale-105 shadow-lg shadow-emerald-900/20 flex items-center justify-center gap-2"
-          >
-            Explore Our Expeditions <ChevronRight className="w-5 h-5" />
-          </button>
           <a 
             href="https://www.facebook.com/share/17zQW5pe1j/?mibextid=wwXIfr"
             target="_blank"
