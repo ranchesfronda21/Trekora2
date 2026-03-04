@@ -50,7 +50,7 @@ const Navbar = ({ activeTab, setActiveTab }: { activeTab: string, setActiveTab: 
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => setActiveTab('home')}>
             <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center overflow-hidden border border-emerald-100 shadow-sm">
                <img 
-                 src="/trekora.jpg" 
+                 src="https://github.com/ranchesfronda21/Trekora2/blob/main/trekora.jpg?raw=true" 
                  alt="Trekora Logo" 
                  className="w-full h-full object-cover"
                  referrerPolicy="no-referrer"
