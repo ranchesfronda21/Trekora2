@@ -943,7 +943,7 @@ const Footer = ({ setActiveTab }: { setActiveTab: (t: string) => void }) => (
           <div className="flex items-center gap-2 mb-6">
             <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center overflow-hidden">
                <img 
-                 src="/trekora.jpg" 
+                 src="https://github.com/ranchesfronda21/Trekora2/blob/main/trekora.jpg?raw=true" 
                  alt="Trekora Logo" 
                  className="w-full h-full object-cover opacity-80"
                  referrerPolicy="no-referrer"
